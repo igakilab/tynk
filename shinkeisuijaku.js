@@ -64,15 +64,11 @@ function cardnumset(n, id){
 }
 
 function result(){
- var $result;
-
  if($card1 == $card2){
-  $result = confirm('成功');
+  window.alert('成功');
  }else{
-  $result = confirm('失敗');
-  if($result){
-   cardreturn();
-  }
+  window.alert('失敗');
+  cardreturn();
  }
 
  clearInterval($timer);
