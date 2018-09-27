@@ -86,11 +86,8 @@ function cardreturn(){
 }
 
 function reset(){
- $("#ura1 > img").attr("src", $cardinfo[0][0]);
- $("#ura2 > img").attr("src", $cardinfo[0][0]);
- $("#ura3 > img").attr("src", $cardinfo[0][0]);
- $("#ura4 > img").attr("src", $cardinfo[0][0]);
- $("#ura5 > img").attr("src", $cardinfo[0][0]);
- $("#ura6 > img").attr("src", $cardinfo[0][0]);
+ for(var i = 1; i <= 6; i++){
+  $(document.getElementById(i)).attr("src", $cardinfo[0][0]);
+ }
  $card1 = 0; $card2 = 0; $clickcnt = 0;
 }
