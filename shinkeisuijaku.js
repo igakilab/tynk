@@ -47,7 +47,7 @@ function cardset(n){
    $clickcnt++;
 
    if($card1 != 0 && $card2 != 0){
-    $timer = setInterval(result, 1000);
+    $timer = setInterval(result, 100);
    }
   }
  }
