@@ -1,5 +1,7 @@
 ﻿var $card1 = 0; var $card1id;
 var $card2 = 0; var $card2id;
+var $score = 0;
+var $scorestr = "得点: " + $score;
 var $clickcnt = 0;
 var $timer;
 var $cardmax = 6;
@@ -36,6 +38,7 @@ window.onload = function shuffle(){
   $setcard[i][0] = $cardinfo[$arr[i - 1]][0];
   $setcard[i][1] = $cardinfo[$arr[i - 1]][1];
  }
+ document.getElementById("score").innerHTML = "得点:" + $score;
 }
   
 
@@ -65,14 +68,20 @@ function cardnumset(n, id){
 
 function result(){
  if($card1 == $card2){
+  calcscore($card1);
   window.alert('成功');
  }else{
   window.alert('失敗');
   cardreturn();
  }
+ document.getElementById("score").innerHTML = "得点:" + $score;
 
  clearInterval($timer);
  $card1 = 0; $card2 = 0;
+}
+
+function calcscore(n){
+ $score += n * 100;
 }
 
 function cardreturn(){
@@ -85,5 +94,6 @@ function reset(){
  for(var i = 1; i <= 6; i++){
   $(document.getElementById(i)).attr("src", $cardinfo[0][0]);
  }
- $card1 = 0; $card2 = 0; $clickcnt = 0;
+ $card1 = 0; $card2 = 0; $clickcnt = 0; $score = 0;
+ document.getElementById("score").innerHTML = "得点:" + $score;
 }
