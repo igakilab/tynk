@@ -9,13 +9,15 @@
   <script src="shinkeisuijaku.js"></script>
  </head>
  <body>
-  <p id="score" class="score"></p>
+  <p id="score1" class="active"></p>
+  <p id="score2" class="passive"></p>
   <img src="z01.png" id="1" onclick="cardset(this);">
   <img src="z01.png" id="2" onclick="cardset(this);">
   <img src="z01.png" id="3" onclick="cardset(this);"><br>
   <img src="z01.png" id="4" onclick="cardset(this);">
   <img src="z01.png" id="5" onclick="cardset(this);">
   <img src="z01.png" id="6" onclick="cardset(this);">
-  <input type="button" value="リセット" onclick="reset();">
+  <input type="button" value="リセット" onclick="reset();"><br>
+  <p id="result" class="result"></p>
  </body>
 </html>
