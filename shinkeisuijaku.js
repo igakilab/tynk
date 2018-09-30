@@ -1,7 +1,7 @@
 ﻿var $card1 = 0; var $card1id;
 var $card2 = 0; var $card2id;
-var $score = 0;
-var $scorestr = "得点: " + $score;
+var $score1 = 0; var $score2 = 0;
+var $player = 1;
 var $clickcnt = 0;
 var $timer;
 var $cardmax = 6;
@@ -38,9 +38,13 @@ window.onload = function shuffle(){
   $setcard[i][0] = $cardinfo[$arr[i - 1]][0];
   $setcard[i][1] = $cardinfo[$arr[i - 1]][1];
  }
- document.getElementById("score").innerHTML = "得点:" + $score;
+ displayscore();
 }
-  
+
+function displayscore(){
+ document.getElementById("score1").innerHTML = "1P 得点:" + $score1;
+ document.getElementById("score2").innerHTML = "2P 得点:" + $score2;
+}
 
 function cardset(n){
  if($clickcnt != $cardmax){
@@ -74,14 +78,32 @@ function result(){
   window.alert('失敗');
   cardreturn();
  }
- document.getElementById("score").innerHTML = "得点:" + $score;
+ displayscore();
 
+ changeplayer();
  clearInterval($timer);
  $card1 = 0; $card2 = 0;
+ if($clickcnt == $cardmax){
+  finalresult();
+ }
 }
 
 function calcscore(n){
- $score += n * 100;
+ if($player == 1){
+  $score1 += n * 100;
+ }else{
+  $score2 += n * 100;
+ }
+}
+
+function changeplayer(){
+ document.getElementById("score" + $player).className = "passive";
+ if($player == 1){
+  $player = 2;
+ }else{
+  $player = 1;
+ }
+ document.getElementById("score" + $player).className = "active";
 }
 
 function cardreturn(){
@@ -90,10 +112,22 @@ function cardreturn(){
  $clickcnt -= 2;
 }
 
+function finalresult(){
+ if($score1 == $score2){
+  document.getElementById("result").innerHTML = "引き分け";
+ }else if($score1 > $score2){
+  document.getElementById("result").innerHTML = "1Pの勝ち";
+ }else{
+  document.getElementById("result").innerHTML = "2Pの勝ち";
+ }
+}
+
 function reset(){
- for(var i = 1; i <= 6; i++){
+ for(var i = 1; i <= $cardmax; i++){
   $(document.getElementById(i)).attr("src", $cardinfo[0][0]);
  }
- $card1 = 0; $card2 = 0; $clickcnt = 0; $score = 0;
- document.getElementById("score").innerHTML = "得点:" + $score;
+ $card1 = 0; $card2 = 0; $clickcnt = 0; $score1 = 0; $score2 = 0; $player = 2;
+ changeplayer();
+ displayscore();
+ document.getElementById("result").innerHTML = "";
 }
