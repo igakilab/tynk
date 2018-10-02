@@ -75,6 +75,7 @@ function result(){
   calcscore($card1);
   window.alert('成功');
  }else{
+  changeplayer();
   window.alert('失敗');
   cardreturn();
  }
