@@ -81,7 +81,6 @@ function result(){
  }
  displayscore();
 
- changeplayer();
  clearInterval($timer);
  $card1 = 0; $card2 = 0;
  if($clickcnt == $cardmax){
