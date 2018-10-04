@@ -1,6 +1,7 @@
 ﻿var $card1 = 0; var $card1id;
 var $card2 = 0; var $card2id;
-var $score1 = 0; var $score2 = 0;
+var $HP1 = 100; var $HP2 = 100;
+var $MP1 = 0; var $MP2 = 0;
 var $player = 1;
 var $clickcnt = 0;
 var $timer;
@@ -81,8 +82,8 @@ window.onload = function shuffle(){
 }
 
 function displayscore(){
- document.getElementById("score1").innerHTML = "1P 得点:" + $score1;
- document.getElementById("score2").innerHTML = "2P 得点:" + $score2;
+ document.getElementById("player1").innerHTML = "1P HP:" + $HP1 + " MP:" + $MP1;
+ document.getElementById("player2").innerHTML = "2P HP:" + $HP2 + " MP:" + $MP2;
 }
 
 function cardset(n){
@@ -129,20 +130,28 @@ function result(){
 
 function calcscore(n){
  if($player == 1){
-  $score1 += n * 100;
+  $HP2 -= 10;
+  $MP1 += n;
  }else{
-  $score2 += n * 100;
+  $HP1 -= 10;
+  $MP2 += n;
+ }
+ if($HP1 == 0 || $HP2 == 0){
+  $clickcnt = $cardmax;
+  displayscore();
+  clearInterval($timer);
+  finalresult();
  }
 }
 
 function changeplayer(){
- document.getElementById("score" + $player).className = "passive";
+ document.getElementById("player" + $player).className = "passive";
  if($player == 1){
   $player = 2;
  }else{
   $player = 1;
  }
- document.getElementById("score" + $player).className = "active";
+ document.getElementById("player" + $player).className = "active";
 }
 
 function cardreturn(){
@@ -152,9 +161,9 @@ function cardreturn(){
 }
 
 function finalresult(){
- if($score1 == $score2){
+ if($HP1 == 0 && $HP2 == 0){
   document.getElementById("result").innerHTML = "引き分け";
- }else if($score1 > $score2){
+ }else if($HP1 > $HP2){
   document.getElementById("result").innerHTML = "1Pの勝ち";
  }else{
   document.getElementById("result").innerHTML = "2Pの勝ち";
@@ -165,7 +174,7 @@ function reset(){
  for(var i = 1; i <= $cardmax; i++){
   $(document.getElementById(i)).attr("src", $cardinfo[0][0]);
  }
- $card1 = 0; $card2 = 0; $clickcnt = 0; $score1 = 0; $score2 = 0; $player = 2;
+ $card1 = 0; $card2 = 0; $clickcnt = 0; $HP1 = 100; $HP2 = 100; $MP1 = 0; $MP2 = 0; $player = 2;
  changeplayer();
  displayscore();
  document.getElementById("result").innerHTML = "";
