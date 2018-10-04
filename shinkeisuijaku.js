@@ -132,9 +132,15 @@ function calcscore(n){
  if($player == 1){
   $HP2 -= 10;
   $MP1 += n;
+  if($MP1 > 100){
+   $MP1 = 100;
+  }
  }else{
   $HP1 -= 10;
   $MP2 += n;
+  if($MP2 > 100){
+   $MP2 = 100;
+  }
  }
  if($HP1 == 0 || $HP2 == 0){
   $clickcnt = $cardmax;
