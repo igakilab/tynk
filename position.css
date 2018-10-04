@@ -4,6 +4,11 @@
  font-size: 25px;
 }
 
+.size{
+ width: 100px;
+ height: 175px;
+}
+
 .active{
  font-size: 25px;
  color: black;
