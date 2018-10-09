@@ -92,7 +92,7 @@ function timelimit(){
  document.getElementById("time").innerHTML = $count;
  if($count == 0){
 
-  if($clickcnt==1){
+  if($clickcnt % 2 == 1){
     $(document.getElementById($card1id)).attr("src", $cardinfo[0][0]);
    $clickcnt =0;
    $card1 = 0;
