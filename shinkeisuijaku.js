@@ -193,6 +193,7 @@ function finalresult(){
  }else{
   document.getElementById("result").innerHTML = "2Pの勝ち";
  }
+ clearInterval($limit);
 }
 
 function reset(){
