@@ -4,7 +4,7 @@ var $HP1 = 100; var $HP2 = 100;
 var $MP1 = 0; var $MP2 = 0;
 var $player = 1;
 var $clickcnt = 0;
-var $timer;
+var $timer; var $limit; var $count;
 var $cardmax = 26;
 
 
@@ -79,11 +79,29 @@ window.onload = function shuffle(){
   $setcard[i][1] = $cardinfo[$arr[i - 1]][1];
  }
  displayscore();
+ resettimelimit();
 }
 
 function displayscore(){
  document.getElementById("player1").innerHTML = "1P HP:" + $HP1 + " MP:" + $MP1;
  document.getElementById("player2").innerHTML = "2P HP:" + $HP2 + " MP:" + $MP2;
+}
+
+function timelimit(){
+ $count--;
+ document.getElementById("time").innerHTML = $count;
+ if($count == 0){
+  alert("タイムオーバー");
+  changeplayer();
+  resettimelimit();
+ }
+}
+
+function resettimelimit(){
+ clearInterval($limit);
+ $count = 10;
+ $limit = setInterval(timelimit, 1000);
+ document.getElementById("time").innerHTML = $count;
 }
 
 function cardset(n){
@@ -120,6 +138,7 @@ function result(){
   cardreturn();
  }
  displayscore();
+ resettimelimit();
 
  clearInterval($timer);
  $card1 = 0; $card2 = 0;
@@ -183,5 +202,6 @@ function reset(){
  $card1 = 0; $card2 = 0; $clickcnt = 0; $HP1 = 100; $HP2 = 100; $MP1 = 0; $MP2 = 0; $player = 2;
  changeplayer();
  displayscore();
+ resettimelimit();
  document.getElementById("result").innerHTML = "";
 }
