@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="position.css" type="text/css">
+  <title>神経衰弱（試作）</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  </script>
+  <script src="shinkeisuijaku.js"></script>
+ </head>
+ <body>
+  <p id="time"></p>
+  <p id="player1" class="active"></p>
+  <p id="player2" class="passive"></p><br>
+  <img src="z01.png" id="1" class="size" onclick="cardset(this);">
+  <img src="z01.png" id="2" class="size" onclick="cardset(this);">
+  <img src="z01.png" id="3" class="size" onclick="cardset(this);">
+  <img src="z01.png" id="4" class="size" onclick="cardset(this);">
+  <img src="z01.png" id="5" class="size" onclick="cardset(this);">
+  <img src="z01.png" id="6" class="size" onclick="cardset(this);">
+  <input type="button" value="リセット" onclick="reset();">
+  <p id="result" class="result"></p>
+ </body>
+</html>
