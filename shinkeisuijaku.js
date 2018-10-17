@@ -213,3 +213,17 @@ function reset(){
  resettimelimit();
  document.getElementById("result").innerHTML = "";
 }
+
+
+function update() {
+gameTimer = setTimeout(update, 50);
+var lifeBar1 = document.getElementById('lifeBar1');
+lifeBar1.value=$HP1;
+   
+var lifeBar2 = document.getElementById('lifeBar2');
+lifeBar2.value=$HP2;
+
+}
+
+update();
+
