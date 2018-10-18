@@ -25,6 +25,7 @@
 
 
 #lifeBar1 {
+  color: blue;
   display: inline-block;
   -webkit-appearance: none;
   appearance: none;
@@ -42,6 +43,7 @@
 
 
 #lifeBar2 {
+  color: blue;
   display: inline-block;
   -webkit-appearance: none;
   appearance: none;
@@ -54,6 +56,41 @@
 }
 
 #lifeBar2::-webkit-progress-value {
+  background-color: #00cc00;
+}
+
+#MPBar1 {
+  color: green;
+  display: inline-block;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  vertical-align: -0.2em;
+}
+
+#MPBar1::-webkit-progress-bar {
+    background: #ccc;
+}
+
+#MPBar1::-webkit-progress-value {
+  background-color: #00cc00;
+}
+
+
+#MPBar2 {
+  color: green;
+  display: inline-block;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  vertical-align: -0.2em;
+}
+
+#MPBar2::-webkit-progress-bar {
+    background: #ccc;
+}
+
+#MPBar2::-webkit-progress-value {
   background-color: #00cc00;
 }
 

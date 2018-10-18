@@ -259,6 +259,12 @@ lifeBar1.value=$HP1;
 var lifeBar2 = document.getElementById('lifeBar2');
 lifeBar2.value=$HP2;
 
+var MPBar1 = document.getElementById('MPBar1');
+MPBar1.value=$MP1;
+   
+var MPBar2 = document.getElementById('MPBar2');
+MPBar2.value=$MP2;
+
 }
 
 update();
