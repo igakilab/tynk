@@ -22,3 +22,38 @@
 .result{
  font-size: 50px;
 }
+
+
+#lifeBar1 {
+  display: inline-block;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  vertical-align: -0.2em;
+}
+
+#lifeBar1::-webkit-progress-bar {
+    background: #ccc;
+}
+
+#lifeBar1::-webkit-progress-value {
+  background-color: #00cc00;
+}
+
+
+#lifeBar2 {
+  display: inline-block;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  vertical-align: -0.2em;
+}
+
+#lifeBar2::-webkit-progress-bar {
+    background: #ccc;
+}
+
+#lifeBar2::-webkit-progress-value {
+  background-color: #00cc00;
+}
+
