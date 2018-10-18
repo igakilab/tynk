@@ -1,7 +1,8 @@
 ﻿var $card1 = 0; var $card1id;
 var $card2 = 0; var $card2id;
 var $HP1 = 100; var $HP2 = 100;
-var $MP1 = 0; var $MP2 = 0;
+var $MP1 = 30; var $MP2 = 30;
+var $ex1 = 0; var $ex2 = 0;
 var $player = 1;
 var $clickcnt = 0;
 var $timer; var $limit; var $count;
@@ -61,6 +62,10 @@ $setcard[0][0] = 'z01.png'; $setcard[0][1] = 0;
 
 window.onload = function shuffle(){
  var $arr = [];
+ var urlparams = new URLSearchParams(window.location.search);
+
+ $ex1 = urlparams.get('p1');
+ $ex2 = urlparams.get('p2');
 
  for(var i = 0; i < 26; i++){
   $arr[i] = i + 1;
@@ -174,6 +179,37 @@ function calcscore(n){
   clearInterval($timer);
   finalresult();
  }
+}
+
+function excalc(){
+ if($player == 1){
+  if($MP1 >= 30){
+   if($ex1 == "1"){
+    $HP2 -= 40;
+   }else if($ex1 == "2"){
+    $HP1 += 40;
+   }else if($ex1 == "3"){
+    $HP1 += 20; $HP2 -= 20;
+   }
+   $MP1 -= 30;
+  }else{
+   alert("MP不足です");
+  }
+ }else{
+  if($MP2 >= 30){
+   if($ex2 == "1"){
+    $HP1 -= 40;
+   }else if($ex2 == "2"){
+    $HP2 += 40;
+   }else if($ex2 == "3"){
+    $HP2 += 20; $HP1 -= 20;
+   }
+   $MP2 -= 30;
+  }else{
+   alert("MP不足です");
+  }
+ }
+ displayscore();
 }
 
 function changeplayer(){

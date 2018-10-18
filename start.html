@@ -5,16 +5,18 @@
  </head>
  <body>
   <p>神経衰弱</p>
-  <a href="game.html">ゲーム開始</a>
-  <p>1P必殺技<br>
-  <input type="radio" name="p1" value=1 checked>　クリティカル
-　<input type="radio" name="p1" value=2>　ヒール
-　<input type="radio" name="p1" value=3>　ドレイン
-  <br><br>
-  <p>2P必殺技<br>
-  <input type="radio" name="p2" value=1 checked>　クリティカル
-　<input type="radio" name="p2" value=2>　ヒール
-　<input type="radio" name="p2" value=3>　ドレイン
-
+  <form name="ex" action="game.html" method="get">
+   <p>1P必殺技<br>
+   <input type="radio" name="p1" value=1 checked>　クリティカル
+　 <input type="radio" name="p1" value=2>　ヒール
+　 <input type="radio" name="p1" value=3>　ドレイン
+   <br><br>
+   <p>2P必殺技<br>
+   <input type="radio" name="p2" value=1 checked>　クリティカル
+　 <input type="radio" name="p2" value=2>　ヒール
+　 <input type="radio" name="p2" value=3>　ドレイン
+   <br>
+   <input type="submit" value="ゲーム開始" id="check">
+  </form>
  </body>
 </html>
