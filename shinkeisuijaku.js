@@ -88,8 +88,10 @@ window.onload = function shuffle(){
 }
 
 function displayscore(){
- document.getElementById("player1").innerHTML = "1P HP:" + $HP1 + " MP:" + $MP1;
- document.getElementById("player2").innerHTML = "2P HP:" + $HP2 + " MP:" + $MP2;
+ document.getElementById("HP1").innerHTML = "HP:" + $HP1;
+ document.getElementById("MP1").innerHTML = "MP:" + $MP1;
+ document.getElementById("HP2").innerHTML = "HP:" + $HP2;
+ document.getElementById("MP2").innerHTML = "MP:" + $MP2;
 }
 
 function timelimit(){
@@ -209,17 +211,28 @@ function excalc(){
    alert("MP不足です");
   }
  }
+ if($HP1 < 0){
+  $HP1 = 0;
+  finalresult();
+ }else if($HP2 < 0){
+  $HP2 = 0;
+  finalresult();
+ }
  displayscore();
 }
 
 function changeplayer(){
- document.getElementById("player" + $player).className = "passive";
+ document.getElementById("player" + $player).className = "player-passive";
+ document.getElementById("HP" + $player).className = "passive";
+ document.getElementById("MP" + $player).className = "passive";
  if($player == 1){
   $player = 2;
  }else{
   $player = 1;
  }
- document.getElementById("player" + $player).className = "active";
+ document.getElementById("player" + $player).className = "player-active";
+ document.getElementById("HP" + $player).className = "active";
+ document.getElementById("MP" + $player).className = "active";
 }
 
 function cardreturn(){
@@ -237,11 +250,15 @@ function finalresult(){
   document.getElementById("result").innerHTML = "2Pの勝ち";
  }
  clearInterval($limit);
+ for(var i = 1; i <= $cardmax; i++){
+  $(document.getElementById(i)).attr("onclick", "");
+ }
 }
 
 function reset(){
  for(var i = 1; i <= $cardmax; i++){
   $(document.getElementById(i)).attr("src", $cardinfo[0][0]);
+  $(document.getElementById(i)).attr("onclick", "cardset(this);");
  }
  $card1 = 0; $card2 = 0; $clickcnt = 0; $HP1 = 100; $HP2 = 100; $MP1 = 0; $MP2 = 0; $player = 2;
  changeplayer();

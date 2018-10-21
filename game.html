@@ -9,42 +9,58 @@
   <script src="shinkeisuijaku.js"></script>
  </head>
  <body>
-  <p id="time"></p>
-  <p id="player1" class="active"></p>
-  <progress id="lifeBar1" value="100" max="150" min="0" optimum="100"></progress>
-  <progress id="MPBar1" value="100" max="100" min="0" optimum="100"></progress><br>
-  <p id="player2" class="passive"></p>
-  <progress id="lifeBar2" value="100" max="150" min="0" optimum="100"></progress>
-  <progress id="MPBar2" value="100" max="100" min="0" optimum="100"></progress><br>
-  <br>
-  <img src="z01.png" id="1" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="2" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="3" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="4" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="5" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="6" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="7" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="8" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="9" class="size" onclick="cardset(this);"><br>
-  <img src="z01.png" id="10" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="11" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="12" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="13" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="14" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="15" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="16" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="17" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="18" class="size" onclick="cardset(this);"><br>
-  <img src="z01.png" id="19" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="20" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="21" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="22" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="23" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="24" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="25" class="size" onclick="cardset(this);">
-  <img src="z01.png" id="26" class="size" onclick="cardset(this);"><br>
-  <input type="button" value="必殺技" onclick="excalc();">
-  <input type="button" value="リセット" onclick="reset();">
-  <p id="result" class="result"></p>
+  <div class="p">
+   <div class="player1-position"><div id="player1" class="player-active">1P</div></div>
+   <div>
+    <div class="HP1-position"><div id="HP1" class="active"></div></div>
+    <progress id="lifeBar1" value="100" max="150" min="0" optimum="100" class="HP1bar-position"></progress><br>
+   </div>
+   <div>
+    <div class="MP1-position"><div id="MP1" class="active"></div></div>
+    <progress id="MPBar1" value="100" max="100" min="0" optimum="100" class="MP1bar-position"></progress><br>
+   </div>
+   <div class="text"><div id="time" class="time-position"></div></div>
+   <div class="player2-position"><div id="player2" class="player-passive">2P</div></div>
+   <div>
+    <div class="HP2-position"><div id="HP2" class="passive"></div></div>
+    <progress id="lifeBar2" value="100" max="150" min="0" optimum="100" class="HP2bar-position"></progress><br>
+   </div>
+   <div>
+    <div class="MP2-position"><div id="MP2" class="passive"></div></div>
+    <progress id="MPBar2" value="100" max="100" min="0" optimum="100" class="MP2bar-position"></progress><br>
+   </div>
+   <br>
+   <div class="card-position">
+    <img src="z01.png" id="1" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="2" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="3" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="4" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="5" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="6" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="7" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="8" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="9" class="size" onclick="cardset(this);"><br>
+    <img src="z01.png" id="10" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="11" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="12" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="13" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="14" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="15" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="16" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="17" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="18" class="size" onclick="cardset(this);"><br>
+    <img src="z01.png" id="19" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="20" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="21" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="22" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="23" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="24" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="25" class="size" onclick="cardset(this);">
+    <img src="z01.png" id="26" class="size" onclick="cardset(this);"><br>
+   </div>
+   <input type="button" value="必殺技" onclick="excalc();">
+   <input type="button" value="リセット" onclick="reset();">
+   <div class="text"><div id="result" class="result-position"></div></div>
+  </div>
  </body>
 </html>
