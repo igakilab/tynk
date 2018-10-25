@@ -7,6 +7,7 @@ var $player = 1;
 var $clickcnt = 0;
 var $timer; var $limit; var $count;
 var $cardmax = 26;
+var $clickmai= 0;
 
 
 var $cardinfo = [];
@@ -103,6 +104,7 @@ function timelimit(){
     $(document.getElementById($card1id)).attr("src", $cardinfo[0][0]);
    $clickcnt =0;
    $card1 = 0;
+   $clickmai =0;
 	}
 
   alert("タイムオーバー");
@@ -113,17 +115,19 @@ function timelimit(){
 
 function resettimelimit(){
  clearInterval($limit);
- $count = 10;
+ $count = 20;
  $limit = setInterval(timelimit, 1000);
  document.getElementById("time").innerHTML = $count;
 }
 
 function cardset(n){
+ if($clickmai < 2){
  if($clickcnt != $cardmax){
   if($(document.getElementById(n.id)).attr("src") == $cardinfo[0][0]){
    $(document.getElementById(n.id)).attr("src", $setcard[n.id][0]);
    cardnumset($setcard[n.id][1], n.id);
    $clickcnt++;
+   $clickmai++;
 
    if($card1 != 0 && $card2 != 0){
     $timer = setInterval(result, 100);
@@ -131,25 +135,31 @@ function cardset(n){
   }
  }
 }
+}
 
 function cardnumset(n, id){
- if($card1 == 0) {
+if($card1 == 0) {
+  cliksound();
   $card1 = n;
   $card1id = id;
  }else{
+  cliksound();
   $card2 = n;
   $card2id = id;
  }
+
 }
 
 function result(){
  if($card1 == $card2){
   calcscore($card1);
-  window.alert('成功');
+  resultsound();
+  clickgen();
  }else{
   changeplayer();
-  window.alert('失敗');
-  cardreturn();
+  resultsound();
+  setTimeout("cardreturn()",500);
+  setTimeout("clickgen()",500);
  }
  displayscore();
  resettimelimit();
@@ -184,8 +194,10 @@ function calcscore(n){
 }
 
 function excalc(){
+ 
  if($player == 1){
   if($MP1 >= 30){
+  exsound();
    if($ex1 == "1"){
     $HP2 -= 40;
    }else if($ex1 == "2"){
@@ -199,6 +211,7 @@ function excalc(){
   }
  }else{
   if($MP2 >= 30){
+   exsound();
    if($ex2 == "1"){
     $HP1 -= 40;
    }else if($ex2 == "2"){
@@ -285,4 +298,66 @@ MPBar2.value=$MP2;
 }
 
 update();
+
+
+function cliksound(){
+document.getElementById('clik').currentTime = 0;
+document.getElementById('clik').play();
+}
+
+function resultsound(){
+if($card1 == $card2){
+if($player == 1){
+   if($ex1 == "1"){
+   document.getElementById('true1').currentTime = 0;
+   document.getElementById('true1').play();
+   }else if($ex1 == "2"){
+   document.getElementById('true2').currentTime = 0;
+   document.getElementById('true2').play();
+   }else if($ex1 == "3"){
+   document.getElementById('true3').currentTime = 0;
+   document.getElementById('true3').play();
+  }
+ }else{
+   if($ex2 == "1"){
+   document.getElementById('true1').currentTime = 0;
+   document.getElementById('true1').play();
+   }else if($ex2 == "2"){
+   document.getElementById('true2').currentTime = 0;
+   document.getElementById('true2').play();
+   }else if($ex2 == "3"){
+   document.getElementById('true3').currentTime = 0;
+   document.getElementById('true3').play();
+   }
+  }
+}
+
+else{
+document.getElementById('false').currentTime = 0;
+document.getElementById('false').play();
+}
+}
+function exsound(){
+if($player == 1){
+   if($ex1 == "1"){
+   document.getElementById('ex1').play();
+   }else if($ex1 == "2"){
+    document.getElementById('ex2').play();
+   }else if($ex1 == "3"){
+    document.getElementById('ex3').play();
+   }
+ }else{
+   if($ex2 == "1"){
+    document.getElementById('ex1').play();
+   }else if($ex2 == "2"){
+    document.getElementById('ex2').play();
+   }else if($ex2 == "3"){
+    document.getElementById('ex3').play();
+   }
+ }
+ }
+
+function clickgen(){
+$clickmai -= 2;
+}
 
