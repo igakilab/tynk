@@ -8,7 +8,12 @@ var $clickcnt = 0;
 var $timer; var $limit; var $count;
 var $cardmax = 26;
 var $clickmai= 0;
-
+var option1 = {
+    title: "タイムオーバー",
+    icon: "error",
+    timer: "1000",
+    buttons: false
+  }
 
 var $cardinfo = [];
 $cardinfo[0] = [];$cardinfo[1] = []; $cardinfo[2] = [];
@@ -107,7 +112,7 @@ function timelimit(){
    $clickmai =0;
 	}
 
-  alert("タイムオーバー");
+  swal(option1);
   changeplayer();
   resettimelimit();
  }
