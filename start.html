@@ -2,21 +2,27 @@
 <html lang="ja">
  <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="stposition.css" type="text/css">
  </head>
  <body>
-  <p>神経衰弱</p>
+  <h1><center>神経衰弱</cetner></h1>
+  <div class="select">
   <form name="ex" action="game.html" method="get">
-   <p>1P必殺技<br>
+   <div class="box"><div class="p1"><p>1P必殺技<br>
    <input type="radio" name="p1" value=1 checked>　クリティカル
 　 <input type="radio" name="p1" value=2>　ヒール
 　 <input type="radio" name="p1" value=3>　ドレイン
-   <br><br>
+   </div></div>
+   <div class="box2"><div class="st">
+   <input type="submit" value="ゲーム開始" id="check"style="width:150px;height:50px;font-size:20pt">
+   </div></div>
+   <div class="box"><div class="p2">
    <p>2P必殺技<br>
    <input type="radio" name="p2" value=1 checked>　クリティカル
 　 <input type="radio" name="p2" value=2>　ヒール
 　 <input type="radio" name="p2" value=3>　ドレイン
-   <br>
-   <input type="submit" value="ゲーム開始" id="check" >
+   </div></div>
   </form>
+  </div>
  </body>
 </html>

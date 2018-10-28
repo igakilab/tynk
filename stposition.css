@@ -1,0 +1,46 @@
+.box{float: left;
+     width:40%;
+     height:100px; 
+
+}
+
+.box2{float: left;
+     width:20%;
+     height:100px; 
+    
+}
+
+.select{
+overflow: hidden;
+}
+
+.select:before,
+.selec:after{
+  content: "";
+  display: table;
+}
+
+.select:after{
+  clear: both;
+}
+
+.select{
+  zoom: 1;
+}
+
+.st{
+  position:relative;
+  top:25px;
+  left:63px;
+  
+}
+
+.p1{
+  font-size:15pt;
+  padding-left:50px;
+}
+
+.p2{
+  font-size:15pt;
+  padding-left:50px;
+}
