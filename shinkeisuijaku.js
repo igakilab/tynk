@@ -9,11 +9,18 @@ var $timer; var $limit; var $count;
 var $cardmax = 26;
 var $clickmai= 0;
 var option1 = {
-    title: "タイムオーバー",
+    title: "タイムオーバー！！",
     icon: "error",
     timer: "1000",
     buttons: false
   }
+var option2 = {
+    title: "MP不足です!!",
+    icon: "error",
+    timer: "1000",
+    buttons: false
+  }
+
 
 var $cardinfo = [];
 $cardinfo[0] = [];$cardinfo[1] = []; $cardinfo[2] = [];
@@ -72,6 +79,9 @@ window.onload = function shuffle(){
 
  $ex1 = urlparams.get('p1');
  $ex2 = urlparams.get('p2');
+
+ $(document.getElementById("chara1")).attr("src", "キャラ絵/chara" + $ex1 + ".png");
+ $(document.getElementById("chara2")).attr("src", "キャラ絵/chara" + $ex2 + ".png");
 
  for(var i = 0; i < 26; i++){
   $arr[i] = i + 1;
@@ -199,7 +209,7 @@ function calcscore(n){
 }
 
 function excalc(){
- 
+
  if($player == 1){
   if($MP1 >= 30){
   exsound();
@@ -212,7 +222,7 @@ function excalc(){
    }
    $MP1 -= 30;
   }else{
-   alert("MP不足です");
+   swal(option2);
   }
  }else{
   if($MP2 >= 30){
@@ -226,7 +236,7 @@ function excalc(){
    }
    $MP2 -= 30;
   }else{
-   alert("MP不足です");
+   swal(option2);
   }
  }
  if($HP1 < 0){
@@ -261,11 +271,14 @@ function cardreturn(){
 
 function finalresult(){
  if($HP1 == 0 && $HP2 == 0){
-  document.getElementById("result").innerHTML = "引き分け";
+  document.getElementById("result1").innerHTML = "引き分け";
+  document.getElementById("result2").innerHTML = "引き分け";
  }else if($HP1 > $HP2){
-  document.getElementById("result").innerHTML = "1Pの勝ち";
+  document.getElementById("result1").innerHTML = "勝ち";
+  document.getElementById("result2").innerHTML = "負け";
  }else{
-  document.getElementById("result").innerHTML = "2Pの勝ち";
+  document.getElementById("result1").innerHTML = "負け";
+  document.getElementById("result2").innerHTML = "勝ち";
  }
  clearInterval($limit);
  for(var i = 1; i <= $cardmax; i++){
@@ -290,13 +303,13 @@ function update() {
 gameTimer = setTimeout(update, 50);
 var lifeBar1 = document.getElementById('lifeBar1');
 lifeBar1.value=$HP1;
-   
+
 var lifeBar2 = document.getElementById('lifeBar2');
 lifeBar2.value=$HP2;
 
 var MPBar1 = document.getElementById('MPBar1');
 MPBar1.value=$MP1;
-   
+
 var MPBar2 = document.getElementById('MPBar2');
 MPBar2.value=$MP2;
 
@@ -365,4 +378,3 @@ if($player == 1){
 function clickgen(){
 $clickmai -= 2;
 }
-
