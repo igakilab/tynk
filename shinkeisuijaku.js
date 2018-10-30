@@ -348,32 +348,71 @@ if($player == 1){
    document.getElementById('true3').play();
    }
   }
+ }
+
+ else{
+  document.getElementById('false').currentTime = 0;
+  document.getElementById('false').play();
+ }
 }
 
-else{
-document.getElementById('false').currentTime = 0;
-document.getElementById('false').play();
-}
-}
 function exsound(){
-if($player == 1){
-   if($ex1 == "1"){
-   document.getElementById('ex1').play();
-   }else if($ex1 == "2"){
-    document.getElementById('ex2').play();
-   }else if($ex1 == "3"){
-    document.getElementById('ex3').play();
-   }
+ if($player == 1){
+  if($ex1 == "1"){
+    document.getElementById("critical").style.zIndex = "11";
+    document.getElementById('critical').currentTime=0;
+    document.getElementById('critical').play();
+    setTimeout('mvhidden()', 2100);
+  }else if($ex1 == "2"){
+    document.getElementById("heal").style.zIndex = "11";
+    document.getElementById('heal').currentTime=0;
+    document.getElementById('heal').play();
+    setTimeout('mvhidden()', 2100);
+  }else if($ex1 == "3"){
+    document.getElementById("drain").style.zIndex = "11";
+    document.getElementById('drain').currentTime=0;
+    document.getElementById('drain').play();
+    setTimeout('mvhidden()', 2100);
+  }
  }else{
-   if($ex2 == "1"){
-    document.getElementById('ex1').play();
-   }else if($ex2 == "2"){
-    document.getElementById('ex2').play();
-   }else if($ex2 == "3"){
-    document.getElementById('ex3').play();
-   }
+  if($ex2 == "1"){
+    document.getElementById("critical").style.zIndex = "11";
+    document.getElementById('critical').currentTime=0;
+    document.getElementById('critical').play();
+    setTimeout('mvhidden()', 2100);
+  }else if($ex2 == "2"){
+    document.getElementById("heal").style.zIndex = "11";
+    document.getElementById('heal').currentTime=0;
+    document.getElementById('heal').play();
+    setTimeout('mvhidden()', 2100);
+  }else if($ex2 == "3"){
+    document.getElementById("drain").style.zIndex = "11";
+    document.getElementById('drain').currentTime=0;
+    document.getElementById('drain').play();
+    setTimeout('mvhidden()', 2100);
+  }
  }
+}
+
+function mvhidden(){
+ if($player == 1){
+  if($ex1 == "1"){
+   document.getElementById("critical").style.zIndex = "1";
+  }else if($ex1 == "2"){
+   document.getElementById("heal").style.zIndex = "1";
+  }else if($ex1 == "3"){
+   document.getElementById("drain").style.zIndex = "1";
+  }
+ }else{
+  if($ex2 == "1"){
+   document.getElementById("critical").style.zIndex = "1";
+  }else if($ex2 == "2"){
+   document.getElementById("heal").style.zIndex = "1";
+  }else if($ex2 == "3"){
+   document.getElementById("drain").style.zIndex = "1";
+  }
  }
+}
 
 function clickgen(){
 $clickmai -= 2;
