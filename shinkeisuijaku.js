@@ -281,6 +281,7 @@ function finalresult(){
   document.getElementById("result2").innerHTML = "勝ち";
  }
  clearInterval($limit);
+ $(document.getElementById("skill")).attr("onclick", "");
  for(var i = 1; i <= $cardmax; i++){
   $(document.getElementById(i)).attr("onclick", "");
  }
