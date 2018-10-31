@@ -32,17 +32,17 @@ overflow: hidden;
 .st{
   position:relative;
   top:25px;
-  left:120px;
+  left:10px;
 }
 
 .p1{
   font-size:15pt;
-  padding-left:50px;
+  padding-right:90px;
 }
 
 .p2{
   font-size:15pt;
-  padding-left:250px;
+  padding-left:150px;
 }
 
 .k1{
