@@ -15,7 +15,7 @@ var d3 = new Audio("d3.mp3");
 var w1 = new Audio("w1.mp3");
 var w2 = new Audio("w2.mp3");
 var w3 = new Audio("w3.mp3");
-var ff = new Audio("ff.mp3");
+var ff = new Audio("ff1.mp3");
 
 var option1 = {
     title: "タイムオーバー！！",
@@ -250,10 +250,10 @@ function excalc(){
  }
  if($HP1 < 0){
   $HP1 = 0;
-  finalresult();
+  setTimeout(finalresult,2000);
  }else if($HP2 < 0){
   $HP2 = 0;
-  finalresult();
+  setTimeout(finalresult,2000);
  }
  displayscore();
 }
@@ -281,6 +281,7 @@ function cardreturn(){
 function finalresult(){
   bbgm();
   fbgm();
+  ff.play();
  if($HP1 == 0 && $HP2 == 0){
   document.getElementById("result1").innerHTML = "引き分け";
   document.getElementById("result2").innerHTML = "引き分け";
@@ -434,9 +435,29 @@ function mvhidden(){
 }
 
 function fbgm(){
-
-    ff.play();
+if($HP1 <= $HP2){
+   if($ex1 == "1"){
+    d1.play();
+   }else if($ex1 == "2"){
+    d2.play();
+   }else if($ex1 == "3"){
+    d3.play();
+   }
   }
+
+  if($HP1 > $HP2){
+   if($ex2 == "1"){
+    d1.play();
+   }else if($ex2 == "2"){
+    d2.play();
+   }else if($ex2 == "3"){
+    d3.play();
+   }
+ }
+
+  }
+
+
 
 
 function bbgm(){
