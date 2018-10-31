@@ -1,14 +1,22 @@
 ﻿var $card1 = 0; var $card1id;
 var $card2 = 0; var $card2id;
 var $HP1 = 100; var $HP2 = 100;
-var $MP1 = 30; var $MP2 = 30;
+var $MP1 = 100; var $MP2 = 100;
 var $ex1 = 0; var $ex2 = 0;
 var $player = 1;
 var $clickcnt = 0;
 var $timer; var $limit; var $count;
 var $cardmax = 26;
 var $clickmai= 0;
-var $bgm=0;
+
+var d1 = new Audio("d1.mp3");
+var d2 = new Audio("d2.mp3");
+var d3 = new Audio("d3.mp3");
+var w1 = new Audio("w1.mp3");
+var w2 = new Audio("w2.mp3");
+var w3 = new Audio("w3.mp3");
+var ff = new Audio("ff.mp3");
+
 var option1 = {
     title: "タイムオーバー！！",
     icon: "error",
@@ -213,7 +221,7 @@ function excalc(){
 
  if($player == 1){
   if($MP1 >= 30){
-  exsound();
+   exsound();
    if($ex1 == "1"){
     $HP2 -= 40;
    }else if($ex1 == "2"){
@@ -271,6 +279,7 @@ function cardreturn(){
 }
 
 function finalresult(){
+  bbgm();
   fbgm();
  if($HP1 == 0 && $HP2 == 0){
   document.getElementById("result1").innerHTML = "引き分け";
@@ -360,6 +369,7 @@ if($player == 1){
 }
 
 function exsound(){
+
   for(var i = 1; i <= $cardmax; i++){
    $(document.getElementById(i)).attr("onclick", "");
   }
@@ -424,10 +434,17 @@ function mvhidden(){
 }
 
 function fbgm(){
-   document.getElementById('fbgm').currentTime = 0;
-   document.getElementById('fbgm').play();
-}
 
+    ff.play();
+  }
+
+
+function bbgm(){
+   document.getElementById('bbgm').pause();
+   document.getElementById('true1').pause();
+   document.getElementById('true2').pause();
+   document.getElementById('true3').pause();
+}
 
 function clickgen(){
 $clickmai -= 2;
