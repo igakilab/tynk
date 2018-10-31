@@ -357,6 +357,9 @@ if($player == 1){
 }
 
 function exsound(){
+  for(var i = 1; i <= $cardmax; i++){
+   $(document.getElementById(i)).attr("onclick", "");
+  }
  if($player == 1){
   if($ex1 == "1"){
     document.getElementById("critical").style.zIndex = "11";
@@ -411,6 +414,9 @@ function mvhidden(){
   }else if($ex2 == "3"){
    document.getElementById("drain").style.zIndex = "1";
   }
+ }
+ for(var i = 1; i <= $cardmax; i++){
+  $(document.getElementById(i)).attr("onclick", "cardset(this);");
  }
 }
 
