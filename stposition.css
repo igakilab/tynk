@@ -12,6 +12,7 @@
 
 .select{
 overflow: hidden;
+
 }
 
 .select:before,
@@ -31,8 +32,7 @@ overflow: hidden;
 .st{
   position:relative;
   top:25px;
-  left:63px;
-  
+  left:120px;
 }
 
 .p1{
@@ -42,5 +42,26 @@ overflow: hidden;
 
 .p2{
   font-size:15pt;
-  padding-left:50px;
+  padding-left:250px;
+}
+
+.k1{
+  float: left;
+  width:33%;
+  height:750px; 
+  background-color:#FFDDFF
+}
+
+.k2{
+  float: left;
+  width:33%;
+  height:750px; 
+  background-color:#CCFFFF
+}
+
+.k3{
+  float: left;
+  width:33%;
+  height:750px; 
+  background-color:#DCC2FF
 }
