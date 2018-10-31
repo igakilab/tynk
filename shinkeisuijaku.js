@@ -8,6 +8,7 @@ var $clickcnt = 0;
 var $timer; var $limit; var $count;
 var $cardmax = 26;
 var $clickmai= 0;
+var $bgm=0;
 var option1 = {
     title: "タイムオーバー！！",
     icon: "error",
@@ -270,6 +271,7 @@ function cardreturn(){
 }
 
 function finalresult(){
+  fbgm();
  if($HP1 == 0 && $HP2 == 0){
   document.getElementById("result1").innerHTML = "引き分け";
   document.getElementById("result2").innerHTML = "引き分け";
@@ -419,6 +421,12 @@ function mvhidden(){
   $(document.getElementById(i)).attr("onclick", "cardset(this);");
  }
 }
+
+function fbgm(){
+   document.getElementById('fbgm').currentTime = 0;
+   document.getElementById('fbgm').play();
+}
+
 
 function clickgen(){
 $clickmai -= 2;
