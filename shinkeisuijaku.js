@@ -1,7 +1,7 @@
 ﻿var $card1 = 0; var $card1id;
 var $card2 = 0; var $card2id;
 var $HP1 = 100; var $HP2 = 100;
-var $MP1 = 100; var $MP2 = 100;
+var $MP1 = 30; var $MP2 = 30;
 var $ex1 = 0; var $ex2 = 0;
 var $player = 1;
 var $clickcnt = 0;
@@ -196,6 +196,21 @@ function result(){
 }
 
 function calcscore(n){
+ if(n==1 || n==2 || n==3){
+ if($player == 1){
+  $HP2 -= 20;
+  $MP1 += n;
+  if($MP1 > 100){
+   $MP1 = 100;
+  }
+ }else{
+  $HP1 -= 20;
+  $MP2 += n;
+  if($MP2 > 100){
+   $MP2 = 100;
+  }
+ }
+}else{
  if($player == 1){
   $HP2 -= 10;
   $MP1 += n;
@@ -209,6 +224,7 @@ function calcscore(n){
    $MP2 = 100;
   }
  }
+}
  if($HP1 == 0 || $HP2 == 0){
   $clickcnt = $cardmax;
   displayscore();
@@ -282,7 +298,7 @@ function finalresult(){
   bbgm();
   fbgm();
   ff.play();
- if($HP1 == 0 && $HP2 == 0){
+ if($HP1 == $HP2){
   document.getElementById("result1").innerHTML = "引き分け";
   document.getElementById("result2").innerHTML = "引き分け";
  }else if($HP1 > $HP2){
@@ -378,35 +394,59 @@ function exsound(){
   if($ex1 == "1"){
     document.getElementById("critical").style.zIndex = "11";
     document.getElementById('critical').currentTime=0;
+    document.getElementById('critical').addEventListener('ended', function(){
+      document.getElementById('critical').style.display = "none";
+    });
+    document.getElementById('critical').style.display = "inline";
     document.getElementById('critical').play();
-    setTimeout('mvhidden()', 2100);
+    setTimeout('mvhidden()', 2010);
   }else if($ex1 == "2"){
     document.getElementById("heal").style.zIndex = "11";
     document.getElementById('heal').currentTime=0;
     document.getElementById('heal').play();
-    setTimeout('mvhidden()', 2100);
+    document.getElementById('heal').addEventListener('ended', function(){
+      document.getElementById('heal').style.display = "none";
+    });
+    document.getElementById('heal').style.display = "inline";
+    setTimeout('mvhidden()', 2010);
   }else if($ex1 == "3"){
     document.getElementById("drain").style.zIndex = "11";
     document.getElementById('drain').currentTime=0;
+    document.getElementById('drain').addEventListener('ended', function(){
+      document.getElementById('drain').style.display = "none";
+    });
+    document.getElementById('drain').style.display = "inline";
     document.getElementById('drain').play();
-    setTimeout('mvhidden()', 2100);
+    setTimeout('mvhidden()', 2010);
   }
  }else{
   if($ex2 == "1"){
     document.getElementById("critical").style.zIndex = "11";
     document.getElementById('critical').currentTime=0;
+    document.getElementById('critical').addEventListener('ended', function(){
+      document.getElementById('critical').style.display = "none";
+    });
+    document.getElementById('critical').style.display = "inline";
     document.getElementById('critical').play();
-    setTimeout('mvhidden()', 2100);
+    setTimeout('mvhidden()', 2010);
   }else if($ex2 == "2"){
     document.getElementById("heal").style.zIndex = "11";
     document.getElementById('heal').currentTime=0;
+    document.getElementById('heal').addEventListener('ended', function(){
+      document.getElementById('heal').style.display = "none";
+    });
+    document.getElementById('heal').style.display = "inline";
     document.getElementById('heal').play();
-    setTimeout('mvhidden()', 2100);
+    setTimeout('mvhidden()', 2010);
   }else if($ex2 == "3"){
     document.getElementById("drain").style.zIndex = "11";
     document.getElementById('drain').currentTime=0;
+    document.getElementById('drain').addEventListener('ended', function(){
+      document.getElementById('drain').style.display = "none";
+    });
+    document.getElementById('drain').style.display = "inline";
     document.getElementById('drain').play();
-    setTimeout('mvhidden()', 2100);
+    setTimeout('mvhidden()', 2010);
   }
  }
 }
@@ -432,10 +472,15 @@ function mvhidden(){
  for(var i = 1; i <= $cardmax; i++){
   $(document.getElementById(i)).attr("onclick", "cardset(this);");
  }
+ if($HP1 == 0 || $HP2 == 0){
+ for(var i = 1; i <= $cardmax; i++){
+   $(document.getElementById(i)).attr("onclick", "");
+  }
+  }
 }
 
 function fbgm(){
-if($HP1 <= $HP2){
+if($HP1 < $HP2){
    if($ex1 == "1"){
     d1.play();
    }else if($ex1 == "2"){
@@ -454,6 +499,7 @@ if($HP1 <= $HP2){
     d3.play();
    }
  }
+
 
   }
 

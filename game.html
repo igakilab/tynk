@@ -8,8 +8,12 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="shinkeisuijaku.js"></script>
  </head>
- <body>
+ <body style="margin: 0; background-image: url('./キャラ絵/bg1.png');">
   <div class="p">
+   <!--
+   <div class="bg">
+   <img src="./キャラ絵/bg1.png">
+   </div>-->
    <div class="player1-position"><div id="player1" class="player-active">1P</div></div>
    <div>
     <div class="HP1-position"><div id="HP1" class="active"></div></div>
@@ -112,7 +116,7 @@
   <audio id="fbgm" preload="auto">
   <source src="fbgm.mp3"type="audio/mp3">
   </audio>
-  <audio id="bbgm" preload="auto" autoplay>
+  <audio id="bbgm" preload="auto" autoplay loop>
   <source src="bbgm.mp3"type="audio/mp3">
   </audio>
   

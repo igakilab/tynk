@@ -1,4 +1,17 @@
-﻿.p{
+﻿.bg{
+position: absolute;
+ height: 100%;
+ width: 100%;
+z-index:0;
+}
+
+video {
+  display: none;
+}
+
+
+
+.p{
  position: relative;
  z-index: 10;
 }
@@ -14,26 +27,27 @@
 .size{
  width: 100px;
  height: 175px;
+ cursor: pointer;
 }
 
 .player-active{
  font-size: 50px;
- color: black;
+ color: red;
 }
 
 .active{
  font-size: 20px;
- color: black;
+ color: red;
 }
 
 .player-passive{
  font-size: 50px;
- color: silver;
+ color: black;
 }
 
 .passive{
  font-size: 20px;
- color: silver;
+ color: black;
 }
 
 .result{
@@ -147,6 +161,7 @@
   position: absolute;
   top: 700px;
   left: 42.5%;
+  cursor: pointer;
 }
 
 .exmovie-position{
