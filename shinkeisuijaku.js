@@ -225,7 +225,7 @@ function calcscore(n){
   }
  }
 }
- if($HP1 == 0 || $HP2 == 0){
+ if($HP1 <= 0 || $HP2 <= 0){
   $clickcnt = $cardmax;
   displayscore();
   clearInterval($timer);
@@ -452,7 +452,7 @@ function exsound(){
 }
 
 function mvhidden(){
- if($player == 1){
+ /*if($player == 1){
   if($ex1 == "1"){
    document.getElementById("critical").style.zIndex = "1";
   }else if($ex1 == "2"){
@@ -468,7 +468,7 @@ function mvhidden(){
   }else if($ex2 == "3"){
    document.getElementById("drain").style.zIndex = "1";
   }
- }
+ }*/
  for(var i = 1; i <= $cardmax; i++){
   $(document.getElementById(i)).attr("onclick", "cardset(this);");
  }
