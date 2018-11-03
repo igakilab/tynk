@@ -264,10 +264,10 @@ function excalc(){
    swal(option2);
   }
  }
- if($HP1 < 0){
+ if($HP1 <= 0){
   $HP1 = 0;
   setTimeout(finalresult,2000);
- }else if($HP2 < 0){
+ }else if($HP2 <= 0){
   $HP2 = 0;
   setTimeout(finalresult,2000);
  }
